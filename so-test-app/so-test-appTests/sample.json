@@ -1,0 +1,29 @@
+{
+    "answer_count" : 2,
+    "last_edit_date" : 1515528566,
+    "owner" : {
+        "accept_rate" : 43,
+        "user_type" : "registered",
+        "link" : "https:\/\/stackoverflow.com\/users\/8914352\/osama-naeem",
+        "user_id" : 8914352,
+        "display_name" : "Osama Naeem",
+        "reputation" : 27,
+        "profile_image" : "https:\/\/graph.facebook.com\/10214612629898207\/picture?type=large"
+    },
+    "link" : "https:\/\/stackoverflow.com\/questions\/48157212\/uitextview-height-to-change-dynamically-when-typing-without-using-storyboards",
+    "tags" : [
+              "ios",
+              "swift",
+              "textview",
+              "height",
+              "programmatically"
+              ],
+    "view_count" : 30,
+    "creation_date" : 1515441323,
+    "is_answered" : true,
+    "title" : "UITextView height to change dynamically when typing \/ without using storyboards",
+    "accepted_answer_id" : 48158001,
+    "last_activity_date" : 1515528566,
+    "question_id" : 48157212,
+    "score" : 0
+}
