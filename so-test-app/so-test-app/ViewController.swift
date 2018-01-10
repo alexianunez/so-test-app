@@ -10,27 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let restClient = RestClient()
+    var dataSource: [Question] = []
     
-    let urlString = "https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        restClient.fetchData(urlString: urlString) { (response) in
-            
-            guard
-                response.1 == nil,
-                let questions = response.0 else {
-                print(response.1!.localizedDescription)
-                return
-            }
-            
-            for question: Question in questions {
-                print(question.title)
-            }
-        }
         
     }
 
@@ -38,7 +22,39 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        dataSource = []
+    }
 
+}
 
+extension ViewController {
+    
+    fileprivate func fetchData() {
+        
+        let restClient = RestClient()
+        
+        let urlString = "https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow"
+        
+        restClient.fetchData(urlString: urlString) { [weak self] (response) in
+            
+            guard
+                response.1 == nil,
+                let questions = response.0 else {
+                    print(response.1!.localizedDescription)
+                    return
+            }
+            
+            let _ = questions.map({ (question) in
+                self?.dataSource.append(question)
+            })
+        }
+    }
 }
 
