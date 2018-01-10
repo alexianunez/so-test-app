@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7032C54720057F1A002F4964 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7032C54620057F1A002F4964 /* RestClient.swift */; };
+		7032C5492005AFF0002F4964 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 7032C5482005AFF0002F4964 /* sample.json */; };
+		70C7AC6C2006A48E00E8AB8F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7AC6B2006A48E00E8AB8F /* Parser.swift */; };
 		70DB865820056B38004B96F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB865720056B38004B96F3 /* AppDelegate.swift */; };
 		70DB865A20056B38004B96F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB865920056B38004B96F3 /* ViewController.swift */; };
 		70DB865D20056B38004B96F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DB865B20056B38004B96F3 /* Main.storyboard */; };
 		70DB865F20056B38004B96F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DB865E20056B38004B96F3 /* Assets.xcassets */; };
 		70DB866220056B38004B96F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DB866020056B38004B96F3 /* LaunchScreen.storyboard */; };
 		70DB866D20056B39004B96F3 /* so_test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB866C20056B39004B96F3 /* so_test_appTests.swift */; };
+		70DB867820056CDC004B96F3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB867720056CDC004B96F3 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7032C54620057F1A002F4964 /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		7032C5482005AFF0002F4964 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
+		70C7AC6B2006A48E00E8AB8F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		70DB865420056B38004B96F3 /* so-test-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "so-test-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DB865720056B38004B96F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70DB865920056B38004B96F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +43,7 @@
 		70DB866820056B39004B96F3 /* so-test-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "so-test-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DB866C20056B39004B96F3 /* so_test_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = so_test_appTests.swift; sourceTree = "<group>"; };
 		70DB866E20056B39004B96F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70DB867720056CDC004B96F3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,9 @@
 				70DB865E20056B38004B96F3 /* Assets.xcassets */,
 				70DB866020056B38004B96F3 /* LaunchScreen.storyboard */,
 				70DB866320056B38004B96F3 /* Info.plist */,
+				70DB867720056CDC004B96F3 /* Question.swift */,
+				7032C54620057F1A002F4964 /* RestClient.swift */,
+				70C7AC6B2006A48E00E8AB8F /* Parser.swift */,
 			);
 			path = "so-test-app";
 			sourceTree = "<group>";
@@ -92,6 +103,7 @@
 			children = (
 				70DB866C20056B39004B96F3 /* so_test_appTests.swift */,
 				70DB866E20056B39004B96F3 /* Info.plist */,
+				7032C5482005AFF0002F4964 /* sample.json */,
 			);
 			path = "so-test-appTests";
 			sourceTree = "<group>";
@@ -189,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7032C5492005AFF0002F4964 /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7032C54720057F1A002F4964 /* RestClient.swift in Sources */,
+				70DB867820056CDC004B96F3 /* Question.swift in Sources */,
+				70C7AC6C2006A48E00E8AB8F /* Parser.swift in Sources */,
 				70DB865A20056B38004B96F3 /* ViewController.swift in Sources */,
 				70DB865820056B38004B96F3 /* AppDelegate.swift in Sources */,
 			);
