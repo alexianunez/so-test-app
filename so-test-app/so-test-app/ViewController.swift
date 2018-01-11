@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var dataSource: [Question] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        title = "Latest Questions"
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,12 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         dataSource = []
     }
+    
+    fileprivate func toggleNetworkIndicator(toggle: Bool) {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = toggle
+        }
+    }
 
 }
 
@@ -43,18 +50,56 @@ extension ViewController {
         let urlString = "https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow"
         
         restClient.fetchData(urlString: urlString) { [weak self] (response) in
-            
+        
+        self?.toggleNetworkIndicator(toggle: true)
+        
             guard
                 response.1 == nil,
                 let questions = response.0 else {
                     print(response.1!.localizedDescription)
+                    self?.toggleNetworkIndicator(toggle: false)
                     return
             }
             
             let _ = questions.map({ (question) in
                 self?.dataSource.append(question)
             })
+            self?.toggleNetworkIndicator(toggle: false)
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
     }
 }
+
+extension ViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
+        
+        let question = dataSource[indexPath.row]
+        
+        cell.questionTitle.text = question.title
+        cell.detailsLabel.text = "Answer count: \(question.answerCount) Score: \(question.score)"
+        
+        return cell
+    }
+    
+}
+
+class CollectionCell: UICollectionViewCell {
+    @IBOutlet weak var questionTitle: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
+    
+}
+
 
