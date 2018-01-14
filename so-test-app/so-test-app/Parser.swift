@@ -8,9 +8,16 @@
 
 import Foundation
 
-enum ParserError: Error {
+enum ParserError: Error, CustomStringConvertible {
     case MalformedData
     case NoData
+    
+    var description: String {
+        switch self {
+        case .MalformedData: return "The parser received malformed data."
+        case .NoData: return "The parser resuled in no data."
+        }
+    }
 }
 
 struct Parser {

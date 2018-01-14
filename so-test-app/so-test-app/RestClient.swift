@@ -5,20 +5,25 @@
 //  Created by Alexia Nunez on 1/9/18.
 //  Copyright © 2018 Alexia Nunez. All rights reserved.
 //
+import Foundation
 
 typealias RestResponse = ([Question]?, Error?)
 
-enum RestClientError: Error {
+enum RestClientError: Error, CustomStringConvertible {
     case InvalidURL
     case UnknownError
-    case APIError(String)
+    case APIError(Error)
     case NoData
-    // TODO: Add human readable error strings
     
+    var description: String {
+        switch self {
+            case .InvalidURL: return "The request URL used was invalid"
+            case .UnknownError: return "Unknown Error"
+            case .NoData: return "The request returned no data."
+            case .APIError(let msg): return "\(msg)"
+        }
+    }
 }
-
-
-import Foundation
 
 struct RestClient {
     
@@ -35,7 +40,7 @@ struct RestClient {
         let task = session.dataTask(with: url) { (data, response, error) in
             
         if let unwrappedError = error, let unwrappedResponse = response as? HTTPURLResponse, unwrappedResponse.statusCode != 200 {
-                completion((nil, RestClientError.APIError(unwrappedError.localizedDescription)))
+                completion((nil, RestClientError.APIError(unwrappedError)))
                 return
             }
             
@@ -54,7 +59,5 @@ struct RestClient {
     private func urlForString(urlString: String) -> URL? {
         return URL(string: urlString)
     }
-    
-    
 }
 
