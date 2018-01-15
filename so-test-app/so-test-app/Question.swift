@@ -9,14 +9,16 @@
 import Foundation
 
 struct Question {
-    
-    // Since I've got an hour to do this, we'll be model just the necessary data to display onscreen. In a perfect world, I'd parse all the fields.
-    
     let id: Int
     let title: String
     let date: Date
     let answerCount: Int
     let score: Int
+}
+
+extension Question {
+    
+    // Since I've got an hour to do this, we'll be model just the necessary data to display onscreen. In a perfect world, I'd parse all the fields.
     
     private enum Keys: String {
         case id = "question_id"
