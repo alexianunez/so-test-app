@@ -14,6 +14,12 @@ struct Question {
     let date: Date
     let answerCount: Int
     let score: Int
+    let owner: Owner
+}
+
+struct Owner {
+    let imageUrl: String
+    let author: String
 }
 
 extension Question {
@@ -26,6 +32,7 @@ extension Question {
         case score
         case answerCount = "answer_count"
         case date = "creation_date"
+        case owner
     }
     
     init?(json: [String: AnyObject]) {
@@ -34,7 +41,9 @@ extension Question {
             let answerCount = json[Keys.answerCount.rawValue] as? Int,
             let title = json[Keys.title.rawValue] as? String,
             let date = json[Keys.date.rawValue] as? TimeInterval,
-            let score = json[Keys.score.rawValue] as? Int
+            let score = json[Keys.score.rawValue] as? Int,
+            let ownerInfo = json[Keys.owner.rawValue] as? [String: AnyObject],
+            let owner = Owner(json: ownerInfo)
         else {
             return nil
         }
@@ -43,6 +52,27 @@ extension Question {
         self.title = title
         self.date = Date(timeIntervalSince1970: date)
         self.score = score
+        self.owner = owner
+    }
+    
+}
+
+extension Owner {
+    
+    private enum Keys: String {
+        case imageUrl = "profile_image"
+        case author = "display_name"
+    }
+    
+    init?(json: [String: AnyObject]) {
+        guard
+        let author = json[Keys.author.rawValue] as? String,
+        let imageUrl = json[Keys.imageUrl.rawValue] as? String
+            else {
+                return nil
+        }
+        self.author = author
+        self.imageUrl = imageUrl
     }
     
 }
