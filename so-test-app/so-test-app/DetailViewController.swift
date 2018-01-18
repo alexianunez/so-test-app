@@ -16,23 +16,31 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var authorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        
-       fetchImage()
+        guard let q = question else { return }
+        populateUI(question: q)
     }
 
 }
 
 fileprivate extension DetailViewController {
-    func fetchImage() {
-        guard let q = question else {
-            return
-        }
-        client.fetchImageData(urlString: q.owner.imageUrl) { (image) in
+    
+    func populateUI(question: Question) {
+        fetchImage(question: question)
+        buildQuestionString(question: question)
+        authorLabel.text = question.owner.author
+    }
+    
+    func buildQuestionString(question: Question) {
+        questionTextView.text = question.title
+    }
+    
+    func fetchImage(question: Question) {
+        
+        client.fetchImageData(urlString: question.owner.imageUrl) { (image) in
             if let img = image {
                 DispatchQueue.main.async { [weak self] in
                     self?.profileImageView.image = img

@@ -103,26 +103,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ab7-SY-Dze">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ab7-SY-Dze">
                                 <rect key="frame" x="270" y="20" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="OzF-rn-som"/>
                                     <constraint firstAttribute="height" constant="90" id="rQD-6S-7ga"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fb-qu-ErL">
+                                <rect key="frame" x="270" y="120" width="90" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="m3X-AY-BOf" firstAttribute="trailing" secondItem="Ab7-SY-Dze" secondAttribute="trailing" constant="15" id="EAA-8a-YEG"/>
                             <constraint firstItem="xZA-sn-RPZ" firstAttribute="bottom" secondItem="m3X-AY-BOf" secondAttribute="bottom" id="OhE-Z7-rkM"/>
+                            <constraint firstItem="9Fb-qu-ErL" firstAttribute="top" secondItem="Ab7-SY-Dze" secondAttribute="bottom" constant="10" id="aFe-zD-mx3"/>
                             <constraint firstItem="xZA-sn-RPZ" firstAttribute="top" secondItem="m3X-AY-BOf" secondAttribute="top" id="fD4-6Y-t3v"/>
                             <constraint firstItem="Ab7-SY-Dze" firstAttribute="top" secondItem="xZA-sn-RPZ" secondAttribute="top" id="fxJ-WO-7jA"/>
                             <constraint firstItem="Ab7-SY-Dze" firstAttribute="leading" secondItem="xZA-sn-RPZ" secondAttribute="trailing" constant="11" id="iKj-tt-gb7"/>
                             <constraint firstItem="xZA-sn-RPZ" firstAttribute="leading" secondItem="m3X-AY-BOf" secondAttribute="leading" constant="15" id="oVK-NQ-6C2"/>
+                            <constraint firstItem="9Fb-qu-ErL" firstAttribute="leading" secondItem="Ab7-SY-Dze" secondAttribute="leading" id="uwj-e8-cZd"/>
+                            <constraint firstItem="9Fb-qu-ErL" firstAttribute="trailing" secondItem="Ab7-SY-Dze" secondAttribute="trailing" id="w6O-q3-7rN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m3X-AY-BOf"/>
                     </view>
                     <connections>
+                        <outlet property="authorLabel" destination="9Fb-qu-ErL" id="Dca-Ra-y9g"/>
                         <outlet property="profileImageView" destination="Ab7-SY-Dze" id="Naa-OU-cwc"/>
                         <outlet property="questionTextView" destination="xZA-sn-RPZ" id="Eve-20-6mp"/>
                     </connections>

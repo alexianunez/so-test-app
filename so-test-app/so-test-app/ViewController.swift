@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    let kDetailVCID: String = "DetailViewController"
     
     var dataSource: [Question] = []
     
@@ -93,7 +94,20 @@ extension ViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
+}
+
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let storyboard = self.storyboard,
+        let detailVC = storyboard.instantiateViewController(withIdentifier: kDetailVCID) as? DetailViewController
+            else {
+                return
+        }
+        // Config here!
+        let question = dataSource[indexPath.row]
+        detailVC.question = question
+        self.navigationController?.show(detailVC, sender: self)
+    }
 }
 
 class CollectionCell: UICollectionViewCell {
