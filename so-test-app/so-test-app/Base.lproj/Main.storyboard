@@ -89,6 +89,48 @@
             </objects>
             <point key="canvasLocation" x="698.39999999999998" y="133.5832083958021"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="iDp-l9-4DR">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nl2-eR-U2N" customClass="DetailViewController" customModule="so_test_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LYH-8Z-QdE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xZA-sn-RPZ">
+                                <rect key="frame" x="15" y="20" width="244" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ab7-SY-Dze">
+                                <rect key="frame" x="270" y="20" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="OzF-rn-som"/>
+                                    <constraint firstAttribute="height" constant="90" id="rQD-6S-7ga"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m3X-AY-BOf" firstAttribute="trailing" secondItem="Ab7-SY-Dze" secondAttribute="trailing" constant="15" id="EAA-8a-YEG"/>
+                            <constraint firstItem="xZA-sn-RPZ" firstAttribute="bottom" secondItem="m3X-AY-BOf" secondAttribute="bottom" id="OhE-Z7-rkM"/>
+                            <constraint firstItem="xZA-sn-RPZ" firstAttribute="top" secondItem="m3X-AY-BOf" secondAttribute="top" id="fD4-6Y-t3v"/>
+                            <constraint firstItem="Ab7-SY-Dze" firstAttribute="top" secondItem="xZA-sn-RPZ" secondAttribute="top" id="fxJ-WO-7jA"/>
+                            <constraint firstItem="Ab7-SY-Dze" firstAttribute="leading" secondItem="xZA-sn-RPZ" secondAttribute="trailing" constant="11" id="iKj-tt-gb7"/>
+                            <constraint firstItem="xZA-sn-RPZ" firstAttribute="leading" secondItem="m3X-AY-BOf" secondAttribute="leading" constant="15" id="oVK-NQ-6C2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m3X-AY-BOf"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="Ab7-SY-Dze" id="Naa-OU-cwc"/>
+                        <outlet property="questionTextView" destination="xZA-sn-RPZ" id="Eve-20-6mp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIW-lV-6Fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="133.5832083958021"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="J4n-ym-8tb">
             <objects>

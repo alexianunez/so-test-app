@@ -6,6 +6,7 @@
 //  Copyright © 2018 Alexia Nunez. All rights reserved.
 //
 import Foundation
+import UIKit
 
 typealias RestResponse = ([Question]?, Error?)
 
@@ -51,6 +52,34 @@ struct RestClient {
             }
         
             completion((questions, nil))
+        }
+        task.resume()
+        
+    }
+    
+    func fetchImageData(urlString: String, completion: @escaping (UIImage?) -> ()) -> Void {
+        
+        guard let url: URL = self.urlForString(urlString: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            
+            if let _ = error, let unwrappedResponse = response as? HTTPURLResponse, unwrappedResponse.statusCode != 200 {
+                completion(nil)
+                return
+            }
+            
+            guard
+                let unwrappedData = data,
+                let img = UIImage.init(data: unwrappedData) else {
+                    completion(nil)
+                    return
+            }
+            
+            completion(img)
         }
         task.resume()
         
